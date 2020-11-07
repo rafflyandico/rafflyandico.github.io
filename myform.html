@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<title>Raffly Andico D 05211940000040</title>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+$(document).ready(function() {
+$('.error').hide(); //class dengan error disembunyikan
+$('.submit').click(function(event){ //tombol submit di klik 
+var data=$('.infobox').val(); //membaca isi text box dengan class name infobox 
+if(validate_date(data)) // yang terjadi bila syarat userid terpenuhi 
+{
+$('.error').hide(); //class dengan error disembunyikan
+alert("Registrasi berhasil!"); //menampilkan pop-up jika registrasi berhasil
+}
+else
+{
+$('.error').show(); //class dengan error disembunyikan
+event.preventDefault(); //method yang berfungsi untuk mencegah terjadinya event bawaan dari sebuah DOM
+}
+});
+});
+function validate_date(date) //method untuk mevalidasi date
+{
+  var pattern= new RegExp(/\b\d{1,2}[\/-]\d{1,2}[\/-]\d{4}\b/); //syarat agar date terpenuhi (mm/dd/yyyy or mm-dd-yyyy)
+return pattern.test(date); //kembali ke fungsi awal
+}
+</script>
+</head>
+<body> 
+<div class="jumbotron text-center" style="margin-bottom:0"> <!-- membuat jumbotron -->
+  <h3>Welcome to My jQuery Page</h3> 
+  <p>ikan hiu makan tomat, yokk semangat-semangat!<br>05211940000040  PWEB D</p> 
+</div>
+<div class="jumbotron text-center"  style="background:rgb(22, 32, 92)"> <!-- membuat jumbotron -->
+    <div class="row">
+      <div class="col-sm-6"> <!-- membagi container menjadi 2 -->
+<form id="signup" method="post" action=""> <!-- method untuk membuat form -->
+<div><span class="label" style="color:white"><br><br><br><br><br>Masukkan tanggal terakhir kali anda login (ex. mm/dd/yyyy or mm-dd-yyyy) </span><input type="text" class="infobox"
+name="userid" /><span class="error" style="color:pink"><br>
+Invalid Date. Correct format is mm/dd/yyyy or mm-dd-yyyy </span></div> <!-- (error) hal yang muncul jika persyaratan tidak terpenuhi -->
+<input class="submit btn btn-info" type="submit" value="Submit"> <!-- class untuk menampilkan submit -->
+</form></div>
+<div class="col-sm-6"> <!-- membagi container menjadi 2 -->
+<img src="gambar/Picture1.gif" width="80%"> <!-- insert gambar -->
+</div></div></div>
+</body>
+</html>
